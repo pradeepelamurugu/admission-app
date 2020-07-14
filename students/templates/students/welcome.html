@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>WELCOME TO STUDENTS ADMISSION WEBSITE</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input formaction="createstudent/"  type="submit" value="I'm a student" name="student" >
+        <input formaction="staff/"  type="submit" value="I'm a staff" name="staff" >
+        <input formaction="staffselected/"  type="submit" value="I'm a head" name="head" >
+        <input formaction="admin/"  type="submit" value="I'm a admin" name="admin" >
+    </form>
+</body>
+</html>
