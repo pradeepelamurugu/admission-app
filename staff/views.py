@@ -70,13 +70,13 @@ def accept_view(request):
         stu = get_object_or_404(Student, pk=id)
         if 'accept' in request.POST["decision"]:
         # if request.POST["decision"]=='accept':
-            stu.status='active'
+            stu.status='accpeted'
             stu.save()
-            return redirect('staff/')
+            return redirect('staff_view')
         if 'reject' in request.POST["decision"]:
         # if request.POST["decision"] == 'reject':
-            stu.status = 'reject'
+            stu.status = 'rejected'
             stu.save()
-            return redirect('staff/')
-    selectedstu = Student.objects.filter(status='accept')
+            return redirect('staff_view')
+    selectedstu = Student.objects.filter(status='accepted')
     return render(request, "staff/students_selected.html", {"selectedStudents": selectedstu})
