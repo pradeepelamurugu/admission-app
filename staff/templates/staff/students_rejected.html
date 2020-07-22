@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>staff view</title>
+    <title>rejected students</title>
 </head>
 <body>
-    <h1>APPLICATIONS OF THE STUDENTS ARE LISTED BELOW</h1>
-
-
+    <h1>THE PROFILE OF REJECTED STUDENTS</h1>
 <table class="table table-hover">
 
                                 <thead>
@@ -25,7 +23,9 @@
                                 </thead>
                                 <tbody>
 
-                                        {% for students in Students %}
+                                        {% for students in rejectedStudents %}
+
+
                                     <tr>
 
                                         <th scope="row"> {{ students.name }}</th>
@@ -36,26 +36,11 @@
                                         <td>{{ students.email }}</td>
                                         <td>{{ students.phone_num }}</td>
                                         <td>-</td>
-                                        <td><center>
-                                            <form method="post">
-                                                {% csrf_token %}
-                                                <input type="text"  class="accepted" value="accept" name="decision">
-                                                <input type="number" class="id" value={{ students.id }} name="student_id">
-                                                <input type="submit" value="accept" name="accept" >
-                                            </form>
-                                           <form method="post"> 
-                                               {% csrf_token %}
-                                               <input type="text" class="rejected" value="reject" name="decision">
-                                               <input type="number" class="id" value={{ students.id }} name="student_id">
-                                               <input type="submit" value="reject" name="reject">
-                                           </form> 
-                                        </center></td>
                                     </tr>
 
                                     {% endfor %}
 
                                 </tbody>
                             </table>
-
 </body>
 </html>

@@ -8,7 +8,7 @@ from django.db import models
 
 class Student(models.Model):
     name = models.CharField(max_length=30)
-    id = models.AutoField(primary_key=True,)
+    id = models.AutoField(primary_key=True)
     age = models.IntegerField()
     school_name = models.CharField(max_length=60)
     tenth_mark = models.IntegerField()
